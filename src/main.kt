@@ -1,26 +1,21 @@
 fun main(args: Array<String>){
-        println("Ask away...")
+    println("Ask away...")
 
-        //User input
-        var question = readLine()
+    //User input
+    var question = readLine()
 
-        //8 Ball answer
-        if(rollDie()) {
-            println("This will come true...")
-        } else {
-            println("This will not come true...")
-        }
+    val result: Int = (1..8).random() //random number
+    var answer: String = ""
+    when(result) {
+        1 -> answer = "As I see it, yes."
+        2 -> answer = "Ask again later."
+        3 -> answer = "Better not tell you now."
+        4 -> answer = "Cannot predict now."
+        5 -> answer = "Concentrate and ask again."
+        6 -> answer = "Don't count on it."
+        7 -> answer = "It is certain."
+        8 -> answer = "It is decidedly so."
     }
+    println(answer)
+}
 
-    fun rollDie(): Boolean{
-        val result: Int = (0..6).random() //random number
-
-        if(result > 3) {
-            return true // >3 return true
-        } else if (result < 3) {
-            return false // <3 return true
-        } else {
-            rollDie() // =3 re-roll
-        }
-        return false
-    }
